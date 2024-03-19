@@ -39,7 +39,6 @@ public class Main {
         // TODO:在下面调用你实现的功能
 
         // 获取文件的扩展名
-        //String examsPath = "/Users/rain/Desktop/data/24-spring/软件系统设计/homework/software_design/src/test/resources/cases/exams"; // 替换为你的 exams 目录路径
         Map<Integer, Exam> exams = new HashMap<>();
         try (Stream<Path> paths = Files.walk(Paths.get(examsPath))) {
             paths.filter(Files::isRegularFile).forEach(file -> {
