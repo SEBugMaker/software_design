@@ -42,7 +42,7 @@ public class Main {
         Map<Integer, Exam> exams = new HashMap<>();
         try (Stream<Path> paths = Files.walk(Paths.get(examsPath))) {
             paths.filter(Files::isRegularFile).forEach(file -> {
-                // 获取文件的扩展名
+                // 获取文件扩展名
                 String fileExtension = com.google.common.io.Files.getFileExtension(file.toString());
                 ExamReader reader;
                 // 根据文件的扩展名选择合适的 ExamReader
