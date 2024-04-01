@@ -41,12 +41,12 @@ public class SingleChoiceQuestion extends Question{
     @Override
     public String toString() {
         return "SingleChoiceQuestion{" +
-                "options=" + options +
-                ", answer=" + answer +
-                ", id=" + id +
-                ", type=" + type +
-                ", question='" + question + '\'' +
-                ", points=" + points +
+                "id=" + id +
+                " type=" + type +
+                " question='" + question + '\'' +
+                " points=" + points +
+                " options=" + options +
+                " answer=" + answer +
                 "}\n";
     }
 }

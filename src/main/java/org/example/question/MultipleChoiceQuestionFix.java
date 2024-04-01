@@ -18,6 +18,7 @@ public class MultipleChoiceQuestionFix extends MultipleChoiceQuestion{
     }
 
 
+    @Override
     public int calculateQuestionScore(Object studentAnswer){
         if (!(studentAnswer instanceof List)) {
             throw new IllegalArgumentException("Invalid argument");
@@ -44,14 +45,14 @@ public class MultipleChoiceQuestionFix extends MultipleChoiceQuestion{
     @Override
     public String toString() {
         return "MultipleChoiceQuestionFix{" +
-                "fixScore=" + fixScore +
-                ", options=" + getOptions() +
-                ", answer=" + getAnswer() +
-                ", scoreMode='" + getScoreMode() + '\'' +
-                ", id=" + getId() +
-                ", type=" + getType() +
-                ", question='" + getQuestion() + '\'' +
-                ", points=" + getPoints() +
+                "id=" + getId() +
+                " type=" + getType() +
+                " scoreMode='" + getScoreMode() + '\'' +
+                " question='" + getQuestion() + '\'' +
+                " points=" + getPoints() +
+                " options=" + getOptions() +
+                " answer=" + getAnswer() +
+                " fixScore=" + fixScore +
                 "}\n";
     }
 }

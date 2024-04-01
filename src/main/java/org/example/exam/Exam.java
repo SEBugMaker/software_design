@@ -20,10 +20,7 @@ public class Exam {
     private String title;
     private long startTime;
     private long endTime;
-
-
     private List<Question> questions;
-    // getters and setters
 
     // getters and setters
     public int getId() {
@@ -69,12 +66,13 @@ public class Exam {
 
     @Override
     public String toString() {
-        return "Exam{\n" +
-                "id=" + id +
-                "\ntitle='" + title + '\'' +
-                "\nstartTime=" + startTime +
-                "\nendTime=" + endTime +
-                "\nquestions=\n" + questions +
-                '}';
+        return "Exam{" +
+                "\n id=" + id +
+                "\n title='" + title + '\'' +
+                "\n startTime=" + startTime +
+                "\n endTime=" + endTime +
+                "\n questions=\n" + questions +
+                "\n}" +
+                "\n========================================\n";
     }
 }

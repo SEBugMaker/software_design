@@ -52,7 +52,8 @@ public class Answer {
 
     @Override
     public String toString() {
-        return "Answer{" +
+        return "****************************************\n" +
+                "Answer{" +
                 "\nexamId=" + examId +
                 "\nstuId=" + stuId +
                 "\nsubmitTime=" + submitTime +

@@ -43,14 +43,14 @@ public class MultipleChoiceQuestionPartial extends MultipleChoiceQuestion{
     @Override
     public String toString() {
         return "MultipleChoiceQuestionPartial{" +
-                "partialScore=" + partialScore +
-                ", options=" + getOptions() +
-                ", answer=" + getAnswer() +
-                ", scoreMode='" + getScoreMode() + '\'' +
-                ", id=" + getId() +
-                ", type=" + getType() +
-                ", question='" + getQuestion() + '\'' +
-                ", points=" + getPoints() +
+                "id=" + getId() +
+                " type=" + getType() +
+                " scoreMode='" + getScoreMode() + '\'' +
+                " question='" + getQuestion() + '\'' +
+                " points=" + getPoints() +
+                " options=" + getOptions() +
+                " answer=" + getAnswer() +
+                " partialScore=" + partialScore +
                 "}\n";
     }
 }

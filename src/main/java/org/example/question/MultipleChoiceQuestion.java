@@ -47,20 +47,17 @@ public class MultipleChoiceQuestion extends Question {
     public void setScoreMode(String scoreMode) {
         this.scoreMode = scoreMode;
     }
-    @Override
-    public int calculateQuestionScore(Object answer){
-        return 0;
-    }
+
     @Override
     public String toString() {
         return "MultipleChoiceQuestion{" +
-                "options=" + options +
-                ", answer=" + answer +
-                ", scoreMode='" + scoreMode + '\'' +
-                ", id=" + id +
-                ", type=" + type +
-                ", question='" + question + '\'' +
-                ", points=" + points +
+                "\n id=" + id +
+                "\n type=" + type +
+                "\n scoreMode='" + scoreMode + '\'' +
+                "\n question='" + question + '\'' +
+                "\n options=" + options +
+                "\n points=" + points +
+                "\n answer=" + answer +
                 "}\n";
     }
 

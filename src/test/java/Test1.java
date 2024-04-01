@@ -13,7 +13,7 @@ public class Test1 {
     public void setUp() {
         try {
             resourcePath = Paths.get(getClass().getClassLoader().getResource("cases").toURI()).toString();
-            System.out.println(resourcePath);
+            //System.out.println(resourcePath);
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }

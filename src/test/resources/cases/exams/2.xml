@@ -54,6 +54,46 @@
                     <input>3 4</input>
                     <output>7</output>
                 </sample>
+                <sample>
+                    <input>1 21</input>
+                    <output>22</output>
+                </sample>
+                <sample>
+                    <input>3 14</input>
+                    <output>17</output>
+                </sample>
+                <sample>
+                    <input>1 22</input>
+                    <output>23</output>
+                </sample>
+                <sample>
+                    <input>3 24</input>
+                    <output>27</output>
+                </sample>
+                <sample>
+                    <input>1 32</input>
+                    <output>33</output>
+                </sample>
+                <sample>
+                    <input>3 34</input>
+                    <output>37</output>
+                </sample>
+                <sample>
+                    <input>1 42</input>
+                    <output>43</output>
+                </sample>
+                <sample>
+                    <input>3 54</input>
+                    <output>57</output>
+                </sample>
+                <sample>
+                    <input>1 62</input>
+                    <output>63</output>
+                </sample>
+                <sample>
+                    <input>3 64</input>
+                    <output>67</output>
+                </sample>
             </samples>
             <timeLimit>1000</timeLimit>
             <points>70</points>
