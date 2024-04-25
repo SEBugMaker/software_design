@@ -1,9 +1,12 @@
 package org.example;
 
+import org.example.answer.question.ComplexityCalculator.CyclomaticComplexityCalculator;
 import org.example.onlineJudge.OJ;
 
+import java.io.FileNotFoundException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         String casePath = args[0];
         // 题目文件夹路径
         String examsPath = casePath + System.getProperty("file.separator") + "exams";
@@ -16,5 +19,7 @@ public class Main {
 
         OJ onlineJudge = new OJ(examsPath, answersPath, output);
         onlineJudge.judgeScore();
+
+        //System.exit(0);
     }
 }

@@ -9,6 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestUtils {
     public static void compareCSV(String expected, String actual) {
+        System.out.println(expected);
+        System.out.println(actual);
         try {
             List<String[]> expectedData = readCSV(expected);
             List<String[]> actualData = readCSV(actual);
@@ -16,7 +18,6 @@ public class TestUtils {
             for (int i = 0; i < expectedData.size(); i++) {
                 String[] expectedRow = expectedData.get(i);
                 String[] actualRow = actualData.get(i);
-
                 assertEquals(expectedRow.length, actualRow.length, "column number is different");
                 for (int j = 0; j < expectedRow.length; j++) {
                     assertEquals(expectedRow[j], actualRow[j], "column " + (j+1) + " is different");

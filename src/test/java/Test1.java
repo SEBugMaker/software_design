@@ -2,6 +2,7 @@ import org.example.Main;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 
@@ -13,7 +14,6 @@ public class Test1 {
     public void setUp() {
         try {
             resourcePath = Paths.get(getClass().getClassLoader().getResource("cases").toURI()).toString();
-            //System.out.println(resourcePath);
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -21,9 +21,21 @@ public class Test1 {
     }
 
     @Test
-    public void test() {
+    public void test() throws FileNotFoundException {
         String realOutput = resourcePath + System.getProperty("file.separator") + "output.csv";
         String expected = resourcePath + System.getProperty("file.separator") + "output" + System.getProperty("file.separator") + "expected.csv";
+        String[] args = new String[]{
+                resourcePath,
+                realOutput
+        };
+        Main.main(args);
+        TestUtils.compareCSV(expected, realOutput);
+    }
+
+    @Test
+    public void testComplexity() throws FileNotFoundException {
+        String realOutput = resourcePath + System.getProperty("file.separator") + "output_complexity.csv";
+        String expected = resourcePath + System.getProperty("file.separator") + "output" + System.getProperty("file.separator") + "complexity.csv";
         String[] args = new String[]{
                 resourcePath,
                 realOutput

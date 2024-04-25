@@ -1,0 +1,245 @@
+@startuml
+class org.example.answer.question.ProgrammingQuestionProcessor.PythonLanguageprocessor {
++ boolean compile(String)
++ int calculateQuestionScore(String,List<Map<String,String>>,int)
+}
+
+abstract class org.example.fileReader.abstractExamReaderFactory {
++ {abstract}ExamReader createExamReader()
+}
+
+class org.example.fileReader.readerSet.MultipleChoiceQuestionDeserializer {
++ MultipleChoiceQuestion deserialize(JsonParser,DeserializationContext)
+}
+
+class org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessorFactory {
++ LanguageProcessor createProcessor(String)
+}
+
+class org.example.answer.question.MultipleChoiceQuestionPartial {
+- List<Integer> partialScore
++ List<Integer> getPartialScore()
++ void setPartialScore(List<Integer>)
++ int calculateQuestionScore(Object)
++ String toString()
+}
+
+
+class org.example.answer.question.MultipleChoiceQuestionNothing {
++ int calculateQuestionScore(Object)
++ String toString()
+}
+
+class org.example.answer.question.MultipleChoiceQuestionFix {
+- int fixScore
++ int getFixScore()
++ void setFixScore(int)
++ int calculateQuestionScore(Object)
++ String toString()
+}
+
+
+interface org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessor {
+~ boolean compile(String)
+~ int calculateQuestionScore(String,List<Map<String,String>>,int)
+}
+
+class org.example.fileReader.readerSet.JsonExamReader {
++ Exam readExam(String)
+}
+
+class org.example.threadPool.ThreadPool {
+- int numThreads
+- WorkerThread[] threads
+- BlockingQueue<FutureTask> taskQueue
++ Future<T> submit(Callable<T>)
+}
+
+
+class org.example.threadPool.ThreadPool$WorkerThread {
++ void run()
+}
+
+interface org.example.fileReader.readerSet.ExamReader {
+~ Exam readExam(String)
+}
+
+class org.example.exam.Exam {
+- int id
+- String title
+- long startTime
+- long endTime
+- List<Question> questions
++ int getId()
++ void setId(int)
++ String getTitle()
++ void setTitle(String)
++ long getStartTime()
++ void setStartTime(long)
++ long getEndTime()
++ void setEndTime(long)
++ List<Question> getQuestions()
++ void setQuestions(List<Question>)
++ String toString()
+}
+
+
+class org.example.answer.question.MultipleChoiceQuestion {
+- String scoreMode
+- List<String> options
+- List<Integer> answer
++ List<String> getOptions()
++ void setOptions(List<String>)
++ List<Integer> getAnswer()
++ void setAnswer(List<Integer>)
++ String getScoreMode()
++ void setScoreMode(String)
++ String toString()
+}
+
+
+class org.example.answer.Answer {
+- int examId
+- int stuId
+- long submitTime
+- List<Map<String,Object>> answers
++ int getExamId()
++ void setExamId(int)
++ int getStuId()
++ void setStuId(int)
++ long getSubmitTime()
++ void setSubmitTime(long)
++ List<Map<String,Object>> getAnswers()
++ void setAnswers(List<Map<String,Object>>)
++ String toString()
+}
+
+
+class org.example.fileReader.readerSet.XmlExamReader {
++ Exam readExam(String)
+}
+
+class org.example.fileReader.JsonExamReaderFactory {
++ ExamReader createExamReader()
+}
+
+class org.example.Main {
++ {static} void main(String[])
+}
+
+class org.example.answer.question.ProgrammingQuestionProcessor.JavaLanguageProcessor {
+- {static} Logger log
++ boolean compile(String)
++ int calculateQuestionScore(String,List<Map<String,String>>,int)
+}
+
+
+class org.example.fileReader.readerSet.JsonAnswerReader {
++ Answer readAnswer(String)
+}
+
+class org.example.answer.question.ProgrammingQuestion {
+- List<Map<String,String>> samples
+- int timeLimit
+- int points
++ List<Map<String,String>> getSamples()
++ void setSamples(List<Map<String,String>>)
++ int getTimeLimit()
++ void setTimeLimit(int)
++ int getPoints()
++ void setPoints(int)
++ int calculateQuestionScore(Object)
++ String toString()
+}
+
+
+class org.example.fileReader.XmlExamReaderFactory {
++ ExamReader createExamReader()
+}
+
+abstract class org.example.answer.question.Question {
+# int id
+# int type
+# String question
+# int points
++ int getId()
++ void setId(int)
++ int getType()
++ void setType(int)
++ String getQuestion()
++ void setQuestion(String)
++ int getPoints()
++ void setPoints(int)
++ int calculateQuestionScore(Object)
++ String toString()
+}
+
+
+class org.example.onlineJudge.OJ {
+- Map<Integer,Exam> exams
+- String examsPath
+- String answersPath
+- String output
+- {static} Logger log
++ void judgeScore()
+- void UploadExamsInfo()
+- void JudgeStudentAnswer()
+- void sortCsvFile()
++ int calculateExamScore(Exam,Answer)
+}
+
+
+interface org.example.fileReader.readerSet.AnswerReader {
+~ Answer readAnswer(String)
+}
+
+abstract class org.example.fileReader.abstractAnswerReaderFactory {
++ {abstract}AnswerReader createAnswerReader()
+}
+
+class org.example.fileReader.JsonAnswerReaderFactory {
++ AnswerReader createAnswerReader()
+}
+
+class org.example.answer.question.SingleChoiceQuestion {
+- List<String> options
+- int answer
++ List<String> getOptions()
++ void setOptions(List<String>)
++ int getAnswer()
++ void setAnswer(int)
++ int calculateQuestionScore(Object)
++ String toString()
+}
+
+
+
+
+org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessor <|.. org.example.answer.question.ProgrammingQuestionProcessor.PythonLanguageprocessor
+org.example.answer.question.MultipleChoiceQuestion <|-- org.example.answer.question.MultipleChoiceQuestionPartial
+org.example.answer.question.MultipleChoiceQuestion <|-- org.example.answer.question.MultipleChoiceQuestionNothing
+org.example.answer.question.MultipleChoiceQuestion <|-- org.example.answer.question.MultipleChoiceQuestionFix
+org.example.fileReader.readerSet.ExamReader <|.. org.example.fileReader.readerSet.JsonExamReader
+org.example.threadPool.ThreadPool +.. org.example.threadPool.ThreadPool$WorkerThread
+org.example.threadPool.Thread <|-- org.example.threadPool.ThreadPool$WorkerThread
+org.example.answer.question.Question <|-- org.example.answer.question.MultipleChoiceQuestion
+org.example.fileReader.readerSet.ExamReader <|.. org.example.fileReader.readerSet.XmlExamReader
+org.example.fileReader.abstractExamReaderFactory <|-- org.example.fileReader.JsonExamReaderFactory
+org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessor <|.. org.example.answer.question.ProgrammingQuestionProcessor.JavaLanguageProcessor
+org.example.fileReader.readerSet.AnswerReader <|.. org.example.fileReader.readerSet.JsonAnswerReader
+org.example.answer.question.Question <|-- org.example.answer.question.ProgrammingQuestion
+org.example.fileReader.abstractExamReaderFactory <|-- org.example.fileReader.XmlExamReaderFactory
+org.example.fileReader.abstractAnswerReaderFactory <|-- org.example.fileReader.JsonAnswerReaderFactory
+org.example.answer.question.Question <|-- org.example.answer.question.SingleChoiceQuestion
+org.example.fileReader.JsonAnswerReaderFactory ..> org.example.fileReader.readerSet.JsonAnswerReader
+org.example.fileReader.JsonExamReaderFactory ..> org.example.fileReader.readerSet.JsonExamReader
+org.example.fileReader.XmlExamReaderFactory ..> org.example.fileReader.readerSet.XmlExamReader
+org.example.exam.Exam "1" *-- "0..*" org.example.answer.question.Question
+org.example.onlineJudge.OJ "1" *-- "0..*" org.example.exam.Exam
+org.example.onlineJudge.OJ ..> org.example.answer.Answer
+org.example.Main ..> org.example.onlineJudge.OJ
+org.example.answer.question.ProgrammingQuestion ..> org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessorFactory
+org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessorFactory ..> org.example.answer.question.ProgrammingQuestionProcessor.JavaLanguageProcessor
+org.example.answer.question.ProgrammingQuestionProcessor.LanguageProcessorFactory ..> org.example.answer.question.ProgrammingQuestionProcessor.PythonLanguageprocessor
+org.example.answer.question.ProgrammingQuestionProcessor.JavaLanguageProcessor ..> org.example.threadPool.ThreadPool
+@enduml
